@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+    <link rel="stylesheet" href="style2.0.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Conversor JPB</h1>
+        <div class="convertidor">
+            <input type="number" id="inputValue" placeholder="Introduce el valor" />
+            <select id="inputUnit">
+                <option value="km">Kilómetros</option>
+                <option value="m">Metros</option>
+                <option value="cm">Centímetros</option>
+                <option value="mm">Milímetros</option>
+            </select>
+            <button onclick="convert()">Convertir</button>
+            <div class="resultados">
+                <p id="resultKm">Kilómetros: </p>
+                <p id="resultM">Metros: </p>
+                <p id="resultCm">Centímetros: </p>
+                <p id="resultMm">Milímetros: </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+
+        function convert() {
+            let inputValue = document.getElementById('inputValue').value;
+            let inputUnit = document.getElementById('inputUnit').value;
+
+            if (inputValue === '') {
+                alert('Por favor, introduce un valor.');
+                return;
+            }
+
+            inputValue = parseFloat(inputValue);
+            let valueInMeters;
+
+            switch (inputUnit) {
+                case 'km':
+                    valueInMeters = inputValue * 1000;
+                    break;
+                case 'm':
+                    valueInMeters = inputValue;
+                    break;
+                case 'cm':
+                    valueInMeters = inputValue / 100;
+                    break;
+                case 'mm':
+                    valueInMeters = inputValue / 1000;
+                    break;
+                default:
+                    valueInMeters = 0;
+            }
+
+            document.getElementById('resultKm').innerText = 'Kilómetros: ' + (valueInMeters / 1000);
+            document.getElementById('resultM').innerText = 'Metros: ' + valueInMeters;
+            document.getElementById('resultCm').innerText = 'Centímetros: ' + (valueInMeters * 100);
+            document.getElementById('resultMm').innerText = 'Milímetros: ' + (valueInMeters * 1000);
+        }
+
+    </script>
+</body>
+</html>

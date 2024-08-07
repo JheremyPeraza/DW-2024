@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora JPB</title>
+    <link rel="stylesheet" href="style2.0.css">
+</head>
+<body>
+    <Div class="calculadora">
+        
+        <input type="text" id="pantalla" readonly>
+        <div class="botones">
+            <input type="button" value="c" class="equal" onclick="Limpiar()">
+            <input type="button" value="." onclick="Agregar('.')">
+            <input type="button" value="/" onclick="Agregar('/')">
+        </div>
+        <div class="botones">
+            <input type="button" value="7" onclick="Agregar('7')">
+            <input type="button" value="8" onclick="Agregar('8')">
+            <input type="button" value="9" onclick="Agregar('9')">
+            <input type="button" value="x" onclick="Agregar('*')">
+        </div>
+        <div class="botones">
+            <input type="button" value="4" onclick="Agregar('4')">
+            <input type="button" value="5" onclick="Agregar('5')">
+            <input type="button" value="6" onclick="Agregar('6')">
+            <input type="button" value="-" onclick="Agregar('-')">
+        </div>
+        <div class="botones">
+            <input type="button" value="1" onclick="Agregar('1')">
+            <input type="button" value="2" onclick="Agregar('2')">
+            <input type="button" value="3" onclick="Agregar('3')">
+            <input type="button" value="+" onclick="Agregar('+')">
+        </div>
+        <div class="botones">
+            <input type="button" value="0" class="equal" onclick="Agregar('0')">
+            <input type="button" value="=" class="equal" onclick="Calcular()">
+        </div>
+    </Div>
+    <script>
+    function Agregar(value){
+        document.getElementById("pantalla").value+=value;
+    }
+
+    function Calcular(){
+    const restul = eval(document.getElementById("pantalla").value)
+        document.getElementById("pantalla").value = restul;
+    }
+
+    function Limpiar(){
+        document.getElementById("pantalla").value='';
+    }
+
+    </script>
+</body>
+</html>
